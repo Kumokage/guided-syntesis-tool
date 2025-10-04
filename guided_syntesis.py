@@ -64,7 +64,7 @@ def _(file_browser, sheet_name, table_name):
             )
             data = data.with_columns(pl.col("MC").replace(composition_mixtures_dict))
             data = data.with_columns(
-                pl.col("*").str.strip_chars().cast(pl.Float64, strict=False),
+                pl.col(pl.String).str.strip_chars().cast(pl.Float64, strict=False),
             )
             data = data.with_columns(
                 pl.col("MC").cast(pl.UInt16),
